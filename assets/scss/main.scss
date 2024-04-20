@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+
+h2.section-header::before {
+  content: '';
+  text-align: center;
+  width: 50px;
+  height: 2px;
+  background-color: #353935;
+  position: absolute;
+  margin-bottom: 2px;
+  left: 47%;
+  top: -20px;
+}
+
+h2.section-header {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
