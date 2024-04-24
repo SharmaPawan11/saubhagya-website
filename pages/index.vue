@@ -4,9 +4,9 @@
     <Hero></Hero>
     <Features></Features>
     <PracticeArea></PracticeArea>
+    <Testimonial></Testimonial>
     <FrequentlyAskedQuestions></FrequentlyAskedQuestions>
     <ContactUs></ContactUs>
-    <Testimonial></Testimonial>
     <Footer></Footer>
 
 

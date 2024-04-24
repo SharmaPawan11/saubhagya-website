@@ -10,11 +10,8 @@
         <h1>Where Justice Prevails: <span>Anchored</span> <br> in Righteousness</h1>
         <p>Empowering you with unwavering legal support, ensuring your rights are upheld and justice is served with integrity.</p>
       </div>
-<!--      <h1>Product</h1>-->
-<!--      <p>You really need this product, so hurry and buy it today!</p>-->
-<!--      <a href="#" class="button">Buy Now</a>-->
     </div>
-    <img src="~/assets/images/hero2.jpg" alt="" />
+    <img src="~/assets/images/hero2_compressed.jpg" alt="" />
   </header>
 </template>
 
@@ -40,10 +37,17 @@
 
     .text {
       align-self: center;
+      //@media (max-width:690px) {
+      //  align-self: start;
+      //  margin-top: 4rem;
+      //}
     }
 
     h1,p {
       margin-left: 4rem;
+      @media (max-width:940px) {
+        margin-left: 2rem;
+      }
     }
 
     h1 {
@@ -55,6 +59,17 @@
       span {
         padding: 0 0.5rem;
         background-color: #C89D65;
+      }
+
+      @media (max-width:940px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      margin-right: 1rem;
+      @media (max-width:940px) {
+        font-size: 0.8rem;
       }
     }
   }

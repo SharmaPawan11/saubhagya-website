@@ -37,6 +37,11 @@
     color: #353935;
     padding: 3rem 4rem;
 
+
+    @media (max-width:690px) {
+      padding: 3rem 1rem;
+    }
+
     :deep(.p-accordion-header-link) {
       font-size: 1.2rem;
       background-color: #f1f1f1;

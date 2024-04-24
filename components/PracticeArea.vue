@@ -56,6 +56,10 @@
     color: #353935;
     padding: 3rem 4rem;
 
+    @media (max-width:690px) {
+      padding: 3rem 1rem;
+    }
+
     h3 {
       font-weight: 600;
     }

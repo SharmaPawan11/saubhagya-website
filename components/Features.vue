@@ -3,39 +3,47 @@
 </script>
 
 <template>
-  <div class="feature-container">
-    <div class="feature-container__item">
-      <img src="~/assets/images/gavel.svg" alt="">
-      <h3>Qualified Attorneys</h3>
-      <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
-    </div>
-    <div class="feature-container__item">
-      <img src="~/assets/images/time.svg" alt="">
-      <h3>All time support</h3>
-      <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
-    </div>
-    <div class="feature-container__item">
-      <img src="~/assets/images/weight.svg" alt="">
-      <h3>Reasonable Pricing</h3>
-      <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
-    </div>
-    <div class="feature-container__item">
-      <img src="~/assets/images/success.svg" alt="">
-      <h3>High Success Rate</h3>
-      <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+  <div class="component-container">
+    <div class="feature-container">
+      <div class="feature-container__item">
+        <img src="~/assets/images/gavel.svg" alt="">
+        <h3>Qualified Attorneys</h3>
+        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+      </div>
+      <div class="feature-container__item">
+        <img src="~/assets/images/time.svg" alt="">
+        <h3>All time support</h3>
+        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+      </div>
+      <div class="feature-container__item">
+        <img src="~/assets/images/weight.svg" alt="">
+        <h3>Reasonable Pricing</h3>
+        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+      </div>
+      <div class="feature-container__item">
+        <img src="~/assets/images/success.svg" alt="">
+        <h3>High Success Rate</h3>
+        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+  .component-container {
+    background-color: #f1f1f1;
+  }
+
   .feature-container {
+    position: relative;
+    top: -75px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
     width: 70%;
     padding: 2rem 1rem;
-    background-color: white;
+    background-color: #f9f9f9;
     color: #353935;
     margin-left: auto;
     margin-right: auto;

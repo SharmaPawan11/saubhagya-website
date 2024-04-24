@@ -75,17 +75,22 @@
         gap: 2rem;
         flex-wrap: wrap-reverse;
         background-color: white;
+        @media (max-width:1281px) {
+          padding: 3rem;
+        }
       }
 
       &__input_container {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        flex-basis: 32rem; //512px
+        flex-basis: 430px;
         flex-grow: 1;
+        flex-shrink: 1;
       }
 
       &__input {
+        flex-basis: 1rem;
         width: 100%;
         height: 4em;
         background-color: white;
@@ -119,12 +124,16 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+        flex-shrink: 1;
         gap: 2rem;
-        min-width: 50%;
+        //flex-basis: 50%; //512px
         padding-top: 2rem;
         padding-left: 2rem;
         margin-bottom: 2rem;
         color: #353935;
+        @media (max-width:1132px) {
+          padding-left: unset;
+        }
       }
 
       &__information_item {

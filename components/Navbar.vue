@@ -15,8 +15,9 @@
       <Button label="Cases" link />
       <Button label="Blog" link />
       <Button label="Contact Us" class="contact-us-btn" />
-
     </div>
+    <Button icon="pi pi-bars" aria-label="Menu" class="menu-button"></Button>
+
   </div>
 </template>
 
@@ -27,6 +28,11 @@
     padding: 0.5rem 0;
     display: flex;
     border-bottom: 1px solid #646464;
+
+    @media (max-width:940px) {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
 
     .logo-container {
       display: flex;
@@ -57,6 +63,20 @@
         height: 2.5rem;
         width: 9rem;
       }
+
+      @media (max-width:890px) {
+        display: none;
+      }
     }
+
+    Button.menu-button {
+      height: max-content;
+      align-self: center;
+      margin-left: auto;
+      @media (min-width:890px) {
+        display: none;
+      }
+    }
+
   }
 </style>

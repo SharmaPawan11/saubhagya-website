@@ -4,7 +4,11 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-primevue'
   ],
-  primevue: {  },
+  primevue: {
+    config: {
+      ripple: true
+    }
+  },
   css: [
     '~/assets/scss/main.scss',
     '~/assets/fonts/gauthier.css',
