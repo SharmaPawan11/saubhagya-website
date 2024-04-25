@@ -1,6 +1,10 @@
 <script setup lang="ts">
 
-  const reviews = ref([
+import Carousel from "primevue/carousel";
+
+const CustomCarousel = { extends: Carousel, props: { numVisible: Number, numScroll: Number, responsiveOptions: Array, }, methods: { onTouchMove() { return }, }, }
+
+const reviews = ref([
     {
       name: 'Shashank Shekhar Shukla',
       message: 'Saubhagya Mishra is a brilliant young lawyer who is incredibly sharp and knows his stuff inside and out. His unwavering dedication to his clients and genuine efforts to explain raw legal complexities in a manner accessible to all are truly unparalleled. I have personally benefitted from seeking his services and have first hand experience of his down to earth nature and absolute command over law. I offer my unequivocal recommendation for him to anyone seeking legal representation.',
@@ -61,7 +65,7 @@
     <h2 class="section-header">
       Let's hear out what our <br> customer says
     </h2>
-    <Carousel :value="reviews" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions" circular :autoplayInterval="5000">
+    <CustomCarousel :value="reviews" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions" circular :autoplayInterval="5000">
       <template #item="slotProps">
         <div class="review-container">
           <p>{{slotProps.data.message}}</p>
@@ -71,7 +75,7 @@
           </div>
         </div>
       </template>
-    </Carousel>
+    </CustomCarousel>
   </div>
 </template>
 

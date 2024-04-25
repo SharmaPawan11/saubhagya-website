@@ -31,7 +31,7 @@
 
 <style scoped lang="scss">
   .component-container {
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
   }
 
   .feature-container {
@@ -43,7 +43,7 @@
     gap: 2rem;
     width: 70%;
     padding: 2rem 1rem;
-    background-color: #f9f9f9;
+    background-color: #f3f3f3;
     color: #353935;
     margin-left: auto;
     margin-right: auto;

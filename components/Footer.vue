@@ -62,7 +62,7 @@
         </h2>
         <ul>
           <li><i class="pi pi-phone"></i>+91-9452616163, +91-8958545352</li>
-          <li><i class="pi pi-at"></i>saubhagyamishra4@gmail.com</li>
+          <li><i class="pi pi-at"></i>help@saubhagyamishra.com</li>
           <li><i class="pi pi-map-marker"></i>A 309, Advocates Chamber, Lucknow H.C.</li>
           <li><i class="pi pi-map-marker"></i>1/598, Sector H, Jankipuram, Lucknow </li>
         </ul>
