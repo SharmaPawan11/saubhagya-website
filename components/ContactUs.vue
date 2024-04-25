@@ -1,17 +1,70 @@
 <script setup lang="ts">
+  const runtimeConfig = useRuntimeConfig()
+  const toast = useToast();
+
   const name = ref(null);
   const email = ref(null);
   const phone = ref(null);
   const message = ref(null);
+  const error = ref(null);
+  const submitted = ref(false);
+
+  const resetStates = () => {
+    submitted.value = false;
+    error.value = null;
+  };
+
+  const resetForm = () => {
+    name.value = null;
+    email.value = null;
+    phone.value = null;
+    message.value = null;
+  };
+
+
+  const onSubmit = async () => {
+    resetStates();
+
+    try {
+      const response = await $fetch(runtimeConfig.public.FormCarryUrl, {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name: name.value, email: email.value, message: message.value, phone: phone.value })
+      });
+
+      if (response.code === 200) {
+        submitted.value = true;
+        resetForm();
+        toast.add({
+          severity: "contrast",
+          summary: 'Thank You',
+          detail: 'Your response has been recorded. Our Team will contact you shortly',
+          life: 3000
+        });
+      } else if (response.code === 422) {
+        error.value = response.message;
+      } else {
+        error.value = response.message;
+      }
+      console.log(error)
+    } catch (err) {
+      error.value = err.message ? err.message : err;
+      console.log(error)
+    }
+
+  }
 </script>
 
 <template>
-    <div class="contact-us-form">
+    <div id="contact-us" class="contact-us-form">
         <h2 class="section-header">
           Request a free advise from <br> us today
         </h2>
         <div class="contact-us-form__information_container">
-          <div class="contact-us-form__input_container">
+          <form class="contact-us-form__input_container" @submit.prevent="onSubmit">
             <FloatLabel>
               <InputText id="name" v-model="name" class="contact-us-form__input" />
               <label for="name" class="contact-us-form__input_label">Your Name</label>
@@ -29,9 +82,9 @@
               <label for="message" class="contact-us-form__textarea_label" >Your Messsage</label>
             </FloatLabel>
             <div class="contact-us-form__submit_button">
-              <Button label="Get Free Consultation"/>
+              <Button type="submit" label="Get Free Consultation"/>
             </div>
-          </div>
+          </form>
           <div class="contact-us-form__contact_info_container">
             <div class="contact-us-form__information_item">
               <i class="pi pi-at"></i>
@@ -65,12 +118,14 @@
             </div>
           </div>
         </div>
-
+        <Toast position="center" />
     </div>
 </template>
 
 <style scoped lang="scss">
+
     .contact-us-form {
+
       background-color: white;
       padding:3rem;
 
@@ -180,16 +235,5 @@
         background-color: #bfbfbf;
         //flex-basis: 50%;
       }
-      //
-      //&__textarea_label {
-      //  top: 1.5rem;
-      //  font-size: 1rem;
-      //}
-
-      //&__textarea:focus + label {
-      //  /* targets the label when the input receives focus */
-      //  top: -1rem;
-      //}
-
     }
 </style>

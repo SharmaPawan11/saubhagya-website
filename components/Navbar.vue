@@ -1,20 +1,31 @@
 <script setup lang="ts">
-
+  function scrollTo(selector) {
+    document.querySelector(selector).scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
 </script>
 
 <template>
   <div class="navbar">
-    <div class="logo-container">
+    <div class="logo-container" id="home">
       <img src="~/assets/images/logo.svg" alt="">
       <h1>Adv. Saubhagya</h1>
     </div>
     <div class="navbar__items-container">
-      <Button label="Home" link />
+      <ScrollLink href="#home">
+        <Button label="Home" link />
+      </ScrollLink>
       <Button label="About Us" link />
-      <Button label="Services" link />
+      <ScrollLink href="#practice-area">
+        <Button label="Services" link />
+      </ScrollLink>
       <Button label="Cases" link />
       <Button label="Blog" link />
-      <Button label="Contact Us" class="contact-us-btn" />
+      <ScrollLink href="#contact-us">
+        <Button label="Contact Us" class="contact-us-btn"/>
+      </ScrollLink>
+
     </div>
     <Button icon="pi pi-bars" aria-label="Menu" class="menu-button"></Button>
 

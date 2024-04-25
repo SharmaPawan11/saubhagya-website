@@ -4,7 +4,9 @@
 
 <template>
   <div class="footer">
-    <img src="~/assets/images/logo.svg" alt="Footer" class="footer__logo">
+    <ScrollLink href="#home" style="margin-left:auto; margin-right: auto">
+      <img src="~/assets/images/logo.svg" alt="Footer" class="footer__logo">
+    </ScrollLink>
     <p>Embracing the Complexity: Navigating India's Legal Landscape with Clear Solutions.</p>
 
     <div class="footer__socials-container">
@@ -52,7 +54,10 @@
           <li>Home</li>
           <li>Cases</li>
           <li>Blog</li>
-          <li>Contact Us</li>
+          <ScrollLink href="#contact-us">
+            <li>Contact Us</li>
+          </ScrollLink>
+
         </ul>
       </div>
 
@@ -168,6 +173,10 @@
           padding-bottom: 0.75rem;
           font-size: 0.9rem;
           min-width: 30ch;
+          color: white;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
       p {

@@ -8,22 +8,22 @@
       <div class="feature-container__item">
         <img src="~/assets/images/gavel.svg" alt="">
         <h3>Qualified Attorneys</h3>
-        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise</p>
       </div>
       <div class="feature-container__item">
         <img src="~/assets/images/time.svg" alt="">
         <h3>All time support</h3>
-        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+        <p>Round-the-clock support, ensuring you receive guidance and assistance whenever needed</p>
       </div>
       <div class="feature-container__item">
         <img src="~/assets/images/weight.svg" alt="">
-        <h3>Reasonable Pricing</h3>
-        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+        <h3>Reasonable Fees</h3>
+        <p>Transparent pricing ensuring affordability without compromising quality legal services</p>
       </div>
       <div class="feature-container__item">
         <img src="~/assets/images/success.svg" alt="">
         <h3>High Success Rate</h3>
-        <p>Seasoned attorneys delivering tailored solutions with integrity and expertise.</p>
+        <p>Consistently delivering favorable outcomes, our high success rate speaks volumes</p>
       </div>
     </div>
   </div>

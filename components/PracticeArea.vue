@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="practice-area">
+  <div class="practice-area" id="practice-area">
     <h2 class="section-header">Our practice area</h2>
     <div class="practice-area__item_container">
       <div class="practice-area__item">

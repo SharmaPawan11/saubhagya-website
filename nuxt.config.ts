@@ -23,4 +23,9 @@ export default defineNuxtConfig({
       prerender: true
     }
   },
+  runtimeConfig: {
+    public: {
+      FormCarryUrl: process.env.FORMCARRY_URL
+    }
+  }
 })
