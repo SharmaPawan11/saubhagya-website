@@ -10,7 +10,10 @@
   <div class="navbar">
     <div class="logo-container" id="home">
       <img src="~/assets/images/logo.svg" alt="">
-      <h1>Adv. Saubhagya</h1>
+      <div class="title-container">
+        <h6>Law Chambers of</h6>
+        <h1>Adv. Saubhagya</h1>
+      </div>
     </div>
     <div class="navbar__items-container">
       <ScrollLink href="#home">
@@ -48,11 +51,24 @@
     .logo-container {
       display: flex;
       gap: 1rem;
-      h1 {
-        font-family: Gauthier, serif;
-        font-size: 1.5rem;
-        font-weight: 100;
-        align-self: center;
+      .title-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1, h6 {
+          font-family: Gauthier, serif;
+          font-weight: 100;
+          margin: 0
+        }
+        h1 {
+          font-size: 1.5rem;
+          align-self: center;
+        }
+        h6 {
+          font-size: 1rem;
+        }
       }
       img {
         width: 48px;
