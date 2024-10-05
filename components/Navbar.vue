@@ -11,8 +11,8 @@
     <div class="logo-container" id="home">
       <img src="~/assets/images/logo.svg" alt="">
       <div class="title-container">
-        <h6>Law Chambers of</h6>
-        <h1>Adv. Saubhagya</h1>
+        <h1>Saubhagya Mishra</h1>
+        <h6>And Associates</h6>
       </div>
     </div>
     <div class="navbar__items-container">
