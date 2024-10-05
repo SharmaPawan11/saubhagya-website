@@ -36,7 +36,7 @@
       flex-wrap: wrap;
       gap: 2rem;
       .client {
-        flex-basis: 200px;
+        flex-basis: 175px;
 
         img {
           width: 100%;
