@@ -30,7 +30,7 @@
           ABOUT US
         </h2>
         <p class="footer__about-us-text">
-          Adv. Saubhagya Mishra practices in Allahabad High Court, Lucknow Bench, he also practices in District & Sessions Court Lucknow as well as District Consumer Forum Lucknow.
+          <a href="https://www.saubhagyamishra.com" title="Advocate Saubhagya Mishra">Advocate Saubhagya Mishra</a> practices in Allahabad High Court, Lucknow Bench, he also practices in District & Sessions Court Lucknow as well as District Consumer Forum Lucknow.
         </p>
       </div>
 
@@ -83,6 +83,13 @@
     flex-direction: column;
     gap: 1rem;
     background-color: #696969;
+    &__about-us-text {
+      a {
+        color: unset;
+        text-decoration: none;
+      }
+    }
+
     &__logo {
       width: 6rem;
       height: 6rem;
