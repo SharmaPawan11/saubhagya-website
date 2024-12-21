@@ -8,7 +8,7 @@
 <template>
   <a class="container" v-bind:href="contactHref">
     <div class="icon-container">
-      <slot name=q"icon"></slot>
+      <slot name="icon"></slot>
     </div>
   </a>
 </template>
