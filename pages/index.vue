@@ -8,6 +8,8 @@
     <OurClients></OurClients>
     <Testimonial></Testimonial>
     <FrequentlyAskedQuestions></FrequentlyAskedQuestions>
+    <WhatsappSticky></WhatsappSticky>
+    <PhoneSticky></PhoneSticky>
     <ContactUs></ContactUs>
     <Footer></Footer>
   </div>
