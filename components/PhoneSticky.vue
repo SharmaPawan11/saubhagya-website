@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <StickyContact :fixedTop="'40%'" :contactHref="'tel:+918840133701'">
+  <StickyContact :fixedTop="'40%'" :contactHref="'tel:+919452616163'">
     <template #icon>
       <img src="~/assets/images/phone-sticky.svg" alt="phone-sticky">
     </template>
