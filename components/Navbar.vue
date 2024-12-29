@@ -58,7 +58,7 @@
         justify-content: center;
 
         h1, h6 {
-          font-family: Gauthier, serif;
+          font-family: Alike, serif;
           font-weight: 100;
           margin: 0
         }
