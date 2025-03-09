@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/scss/main.scss',
-    '~/assets/fonts/gauthier.css',
+    '~/assets/fonts/alike.css',
     'primevue/resources/themes/aura-dark-noir/theme.css',
     'primeicons/primeicons.css'
   ],

@@ -55,7 +55,7 @@
       margin-bottom: 0;
       font-size: 3.5rem;
       font-weight: 100;
-      font-family: Gauthier, serif;
+      font-family: Alike, serif;
       span {
         padding: 0 0.5rem;
         background-color: #C89D65;
