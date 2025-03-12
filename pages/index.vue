@@ -32,4 +32,21 @@ useSeoMeta({
     initialScale: "1.0"
   }
 })
+const jsonld = {
+  "@context": "https://schema.org",
+  "@type": "Website",
+  "name": "Advocate Saubhagya Mishra",
+  "alternateName": ["Adv. Saubhagya Mishra", "Saubhagya Mishra", "Advocate Saubhagya"],
+  "url": "https://saubhagyamishra.com/",
+}
+
+useHead({
+  script: [
+    {
+      key: "website-structured-data",
+      type: "application/ld+json",
+      textContent: JSON.stringify(jsonld)
+    }
+  ]
+})
 </script>
