@@ -37,7 +37,7 @@ const jsonld = {
   "@type": "Website",
   "name": "Advocate Saubhagya Mishra",
   "alternateName": ["Adv. Saubhagya Mishra", "Saubhagya Mishra", "Advocate Saubhagya"],
-  "url": "https://saubhagyamishra.com/",
+  "url": "https://saubhagyamishra.com/"
 }
 
 useHead({
