@@ -43,10 +43,10 @@ const jsonld = {
 useHead({
   script: [
     {
-      key: "website-structured-data",
       type: "application/ld+json",
-      textContent: JSON.stringify(jsonld)
+      innerHTML: JSON.stringify(jsonld)
     }
-  ]
+  ],
+  __dangerouslyDisableSanitizers: ['script'],
 })
 </script>
