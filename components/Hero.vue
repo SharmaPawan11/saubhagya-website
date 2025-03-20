@@ -11,7 +11,7 @@
         <p>Empowering you with unwavering legal support, ensuring your rights are upheld and justice is served with integrity.</p>
       </div>
     </div>
-    <img src="~/assets/images/hero_webp.webp" fetchpriority="high" alt="" />
+    <img rel="preload" src="~/assets/images/hero_webp.webp" fetchpriority="high" alt="" />
   </header>
 </template>
 
