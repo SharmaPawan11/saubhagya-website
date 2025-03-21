@@ -19,8 +19,8 @@ useSeoMeta({
   ogSiteName: 'Saubhagya Mishra & Associates',
   title: 'Saubhagya Mishra & Associates | Lawyers in Lucknow | 9452616163',
   ogTitle: 'Saubhagya Mishra & Associates | Lawyers in Lucknow | 9452616163',
-  description: 'Advocate Saubhagya Mishra & Associates - Expert legal services in Lucknow specializing in criminal law, matrimonial matters, consumer protection, and civil litigation. Offering affordable fees, 24/7 support, and a proven track record of success. Contact us for personalized legal solutions and free consultations.',
-  ogDescription: 'Advocate Saubhagya Mishra & Associates - Expert legal services in Lucknow specializing in criminal law, matrimonial matters, consumer protection, and civil litigation. Offering affordable fees, 24/7 support, and a proven track record of success. Contact us for personalized legal solutions and free consultations.',
+  description: 'Advocate Saubhagya Mishra & Associates - Expert legal services and lawyers in Lucknow specializing in criminal law, matrimonial matters, consumer protection, and civil litigation. Offering affordable fees, 24/7 support, and a proven track record of success. Contact us for personalized legal solutions and free consultations.',
+  ogDescription: 'Advocate Saubhagya Mishra & Associates - Expert legal services and lawyers in Lucknow specializing in criminal law, matrimonial matters, consumer protection, and civil litigation. Offering affordable fees, 24/7 support, and a proven track record of success. Contact us for personalized legal solutions and free consultations.',
   ogImage: 'https://lh3.googleusercontent.com/p/AF1QipNTo6bcZaPAjkofczmy9VglXdhdIpp-849FpBv4=s1360-w1360-h1020',
   twitterCard: 'summary_large_image',
   robots: {
