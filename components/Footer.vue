@@ -73,6 +73,12 @@
         </ul>
       </div>
     </div>
+
+    <div class="footer__credits">
+      <p>
+        Designed and developed by <a href="https://writeskewlabs.com">Write Skew Labs LLP</a>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -195,6 +201,17 @@
 
     &__links-container {
       cursor: pointer;
+    }
+
+    &__credits {
+      p {
+        color: orange;
+        a {
+          text-decoration: none;
+          color: white;
+
+        }
+      }
     }
   }
 </style>
