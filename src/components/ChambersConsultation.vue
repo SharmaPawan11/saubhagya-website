@@ -1,35 +1,161 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Icon } from '@iconify/vue';
+import {
+  ToastAction,
+  ToastDescription,
+  ToastProvider,
+  ToastRoot,
+  ToastTitle,
+  ToastViewport
+} from 'reka-ui';
 
-const formState = ref({
-  name: '',
+// Toast State
+const isToastOpen = ref(false);
+const toastType = ref<'success' | 'error'>('success');
+const toastTitle = ref('');
+const toastDescription = ref('');
+const isSubmitting = ref(false);
+
+// Form States
+const formValues = ref({
+  full_name: '',
   phone: '',
   category: 'Land & Revenue Dispute',
-  summary: ''
+  message: ''
 });
 
-const isSubmitted = ref(false);
-const statusMessage = ref('');
+// Tracks if a field has been modified by the user (no longer pristine)
+const dirty = ref({
+  full_name: false,
+  phone: false,
+  category: false,
+  message: false
+});
 
-const handleSubmit = () => {
-  if (formState.value.name && formState.value.phone) {
-    statusMessage.value = 'Case details logged. Registry desk will contact you within 2 legal hours.';
-    isSubmitted.value = true;
-    formState.value = {
-      name: '',
-      phone: '',
-      category: 'Land & Revenue Dispute',
-      summary: ''
-    };
-    setTimeout(() => {
-      isSubmitted.value = false;
-      statusMessage.value = '';
-    }, 6000);
+// Holds error messages displayed to the user
+const errors = ref({
+  full_name: '',
+  phone: '',
+  category: '',
+  message: ''
+});
+
+// Validation logic
+const getValidationError = (field: keyof typeof formValues.value): string => {
+  const value = formValues.value[field]?.trim() ?? '';
+
+  if (field === 'full_name') return value ? '' : 'Full Name is required';
+
+  if (field === 'phone') {
+    if (!value) return 'Phone number is required';
+    return /^(?:\+\d{1,3}[-\s]?)?\d{10}$/.test(value) ? '' : 'Must be 10 digits, with optional + country code';
+  }
+
+  if (field === 'category') return value ? '' : 'Please select a matter category';
+
+  if (field === 'message') return value ? '' : 'Brief case summary is required';
+
+  return '';
+};
+
+// Triggered on every keystroke
+const handleInput = (field: keyof typeof formValues.value) => {
+  dirty.value[field] = true;
+  const error = getValidationError(field);
+
+  if (!error) {
+    errors.value[field] = '';
+  } else if (errors.value[field]) {
+    errors.value[field] = error;
   }
 };
+
+// Triggered when user leaves the input
+const handleBlur = (field: keyof typeof formValues.value) => {
+  if (dirty.value[field]) {
+    errors.value[field] = getValidationError(field);
+  }
+};
+
+// Validates all inputs on submit
+const validateAll = () => {
+  let isValid = true;
+  (Object.keys(formValues.value) as Array<keyof typeof formValues.value>).forEach((field) => {
+    dirty.value[field] = true;
+    const error = getValidationError(field);
+    errors.value[field] = error;
+    if (error) isValid = false;
+  });
+  return isValid;
+};
+
+async function handleSubmit(event: Event) {
+  if (!validateAll() || isSubmitting.value) {
+    return;
+  }
+
+  const form = event.target as HTMLFormElement;
+  const formData = new FormData(form);
+  formData.append('access_key', import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY);
+  formData.append('from_name', 'Saubhagya Mishra & Associates Website');
+  formData.append('subject', `Confidential Case Inquiry: ${formValues.value.category}`);
+
+  isToastOpen.value = false;
+  isSubmitting.value = true;
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      toastType.value = 'success';
+      toastTitle.value = 'Consultation Logged';
+      toastDescription.value = 'Case details logged successfully. Registry desk will contact you within 2 legal hours.';
+      isToastOpen.value = true;
+
+      // Reset form state on success
+      formValues.value = {
+        full_name: '',
+        phone: '',
+        category: 'Land & Revenue Dispute',
+        message: ''
+      };
+      dirty.value = {
+        full_name: false,
+        phone: false,
+        category: false,
+        message: false
+      };
+      errors.value = {
+        full_name: '',
+        phone: '',
+        category: '',
+        message: ''
+      };
+    } else {
+      toastType.value = 'error';
+      toastTitle.value = 'Submission Failed';
+      toastDescription.value = data.message || 'Something went wrong. Please try again or contact chambers directly.';
+      isToastOpen.value = true;
+    }
+  } catch (error) {
+    console.error('Submission error:', error);
+    toastType.value = 'error';
+    toastTitle.value = 'Error';
+    toastDescription.value = 'An unexpected error occurred. Please check your connection or call directly at +91 94526 16163.';
+    isToastOpen.value = true;
+  } finally {
+    isSubmitting.value = false;
+  }
+}
 </script>
 
 <template>
+  <ToastProvider>
   <section class="consultation" id="consultation">
     <div class="consultation__container">
       <!-- Split Heading -->
@@ -142,18 +268,24 @@ const handleSubmit = () => {
             </p>
           </div>
 
-          <form class="consultation__form" @submit.prevent="handleSubmit">
+          <form class="consultation__form" @submit.prevent="handleSubmit" novalidate>
             <!-- Full Name -->
             <div class="consultation__field">
               <label class="consultation__label" for="clientName">Litigant Full Name</label>
               <input 
                 id="clientName"
-                v-model="formState.name"
+                name="full_name"
+                v-model="formValues.full_name"
                 class="consultation__input" 
+                :class="{ 'consultation__input--error': errors.full_name }"
                 placeholder="e.g. Ramesh Chandra Verma" 
-                required 
                 type="text"
+                @input="handleInput('full_name')"
+                @blur="handleBlur('full_name')"
               />
+              <span v-if="errors.full_name" class="consultation__error-text">
+                {{ errors.full_name }}
+              </span>
             </div>
 
             <!-- Phone Number -->
@@ -161,12 +293,18 @@ const handleSubmit = () => {
               <label class="consultation__label" for="clientPhone">Direct Contact Number</label>
               <input 
                 id="clientPhone"
-                v-model="formState.phone"
+                name="phone"
+                v-model="formValues.phone"
                 class="consultation__input" 
+                :class="{ 'consultation__input--error': errors.phone }"
                 placeholder="+91 98765 43210" 
-                required 
                 type="tel"
+                @input="handleInput('phone')"
+                @blur="handleBlur('phone')"
               />
+              <span v-if="errors.phone" class="consultation__error-text">
+                {{ errors.phone }}
+              </span>
             </div>
 
             <!-- Matter Category -->
@@ -174,8 +312,12 @@ const handleSubmit = () => {
               <label class="consultation__label" for="matterCategory">Matter Category</label>
               <select 
                 id="matterCategory"
-                v-model="formState.category"
+                name="category"
+                v-model="formValues.category"
                 class="consultation__select"
+                :class="{ 'consultation__input--error': errors.category }"
+                @change="handleInput('category')"
+                @blur="handleBlur('category')"
               >
                 <option value="Land &amp; Revenue Dispute">Land &amp; Revenue Jurisprudence / Mutation</option>
                 <option value="High Court Writ Petition">High Court Writ Petition (Article 226)</option>
@@ -184,6 +326,9 @@ const handleSubmit = () => {
                 <option value="Matrimonial &amp; Family Dispute">Matrimonial, Maintenance &amp; Family Law</option>
                 <option value="Consumer &amp; UP RERA Action">Consumer Forum &amp; UP RERA Dispute</option>
               </select>
+              <span v-if="errors.category" class="consultation__error-text">
+                {{ errors.category }}
+              </span>
             </div>
 
             <!-- Brief Summary -->
@@ -191,26 +336,30 @@ const handleSubmit = () => {
               <label class="consultation__label" for="matterSummary">Brief Summary of Current Stage</label>
               <textarea 
                 id="matterSummary"
-                v-model="formState.summary"
+                name="message"
+                v-model="formValues.message"
                 class="consultation__textarea" 
+                :class="{ 'consultation__input--error': errors.message }"
                 placeholder="Mention whether FIR has been registered, case number, existing stay orders, or pending notices..." 
                 rows="3"
+                @input="handleInput('message')"
+                @blur="handleBlur('message')"
               ></textarea>
+              <span v-if="errors.message" class="consultation__error-text">
+                {{ errors.message }}
+              </span>
             </div>
 
             <!-- Submission CTA -->
-            <button class="consultation__submit" type="submit">
-              <span>Request Confidential Case Review</span>
-              <span class="material-symbols-outlined consultation__submit-icon">verified</span>
+            <button class="consultation__submit" type="submit" :disabled="isSubmitting">
+              <span>{{ isSubmitting ? 'Transmitting Case Details...' : 'Request Confidential Case Review' }}</span>
+              <span 
+                class="material-symbols-outlined consultation__submit-icon"
+                :class="{ 'consultation__submit-icon--spinning': isSubmitting }"
+              >
+                {{ isSubmitting ? 'sync' : 'verified' }}
+              </span>
             </button>
-
-            <!-- Status message container -->
-            <div 
-              v-if="isSubmitted" 
-              class="consultation__status"
-            >
-              {{ statusMessage }}
-            </div>
           </form>
 
           <p class="consultation__privilege-note">
@@ -220,6 +369,30 @@ const handleSubmit = () => {
       </div>
     </div>
   </section>
+
+  <!-- Notification Toast -->
+  <ToastRoot v-model:open="isToastOpen" :class="['toast', `toast--${toastType}`]">
+    <div class="toast__icon-container">
+      <Icon
+        :icon="toastType === 'success' ? 'material-symbols:check-circle-outline' : 'material-symbols:error-outline'"
+        class="toast__icon"
+      />
+    </div>
+    <ToastTitle class="toast__title">
+      {{ toastTitle }}
+    </ToastTitle>
+    <ToastDescription as-child>
+      <p class="toast__description">
+        {{ toastDescription }}
+      </p>
+    </ToastDescription>
+    <ToastAction class="toast__action" as-child alt-text="Dismiss notification">
+      <Icon icon="material-symbols:close" class="toast__icon-close"/>
+    </ToastAction>
+  </ToastRoot>
+
+  <ToastViewport class="toast-viewport"/>
+  </ToastProvider>
 </template>
 
 <style scoped lang="scss">
@@ -642,6 +815,20 @@ const handleSubmit = () => {
       background-color: var(--color-surface-container-low);
       border-color: var(--color-secondary);
     }
+
+    &--error {
+      border-color: #BA1A1A !important;
+      background-color: #FFF8F7 !important;
+    }
+  }
+
+  &__error-text {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 600;
+    color: #BA1A1A;
+    margin-top: 2px;
   }
 
   &__textarea {
@@ -669,29 +856,23 @@ const handleSubmit = () => {
     justify-content: center;
     gap: var(--space-xs);
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: var(--color-primary);
       box-shadow: 0 6px 16px rgba(1, 18, 15, 0.25);
+    }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
     }
   }
 
   &__submit-icon {
     font-size: 18px;
-  }
 
-  &__status {
-    padding: var(--space-sm);
-    background-color: var(--color-surface-container);
-    border-radius: var(--radius-md);
-    text-align: center;
-    font-family: var(--font-ui);
-    font-size: 11px;
-    line-height: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-secondary);
-    animation: fadeIn 0.3s ease;
+    &--spinning {
+      animation: spin 1s linear infinite;
+    }
   }
 
   &__privilege-note {
@@ -704,14 +885,143 @@ const handleSubmit = () => {
   }
 }
 
-@keyframes fadeIn {
+:deep(.toast-viewport) {
+  --viewport-padding: 24px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--viewport-padding);
+  gap: 10px;
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  margin: 0;
+  list-style: none;
+  z-index: 2147483647;
+  outline: none;
+}
+
+:deep(.toast) {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid #16A34A;
+  padding: 16px;
+  display: grid;
+  grid-template-areas: 'icon title action' 'icon description action';
+  grid-template-columns: max-content auto max-content;
+  column-gap: 14px;
+  align-items: center;
+
+  &[data-state='open'] {
+    animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &[data-state='closed'] {
+    animation: hide 100ms ease-in;
+  }
+  &[data-swipe='move'] {
+    transform: translateX(var(--reka-toast-swipe-move-x));
+  }
+  &[data-swipe='cancel'] {
+    transform: translateX(0);
+    transition: transform 200ms ease-out;
+  }
+  &[data-swipe='end'] {
+    animation: swipeOut 100ms ease-out;
+  }
+
+  &.toast--success {
+    border-left-color: #16A34A;
+    .toast__icon-container { background-color: #F0FDF4; }
+    .toast__icon { color: #16A34A; }
+  }
+
+  &.toast--error {
+    border-left-color: #BA1A1A;
+    .toast__icon-container { background-color: #FFDAD6; }
+    .toast__icon { color: #BA1A1A; }
+  }
+}
+
+:deep(.toast__icon-container) {
+  padding: 0.5rem;
+  grid-area: icon;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:deep(.toast__icon) {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+:deep(.toast__icon-close) {
+  color: #747780;
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+:deep(.toast__title) {
+  grid-area: title;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 14px;
+  font-family: var(--font-ui);
+}
+
+:deep(.toast__description) {
+  grid-area: description;
+  margin: 0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: var(--font-body);
+}
+
+:deep(.toast__action) {
+  grid-area: action;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes spin {
   from {
-    opacity: 0;
-    transform: translateY(-4px);
+    transform: rotate(0deg);
   }
   to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hide {
+  from {
     opacity: 1;
-    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(calc(100% + var(--viewport-padding)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeOut {
+  from {
+    transform: translateX(var(--reka-toast-swipe-end-x));
+  }
+  to {
+    transform: translateX(calc(100% + var(--viewport-padding)));
   }
 }
 </style>
