@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Outer Judicial Crest Circle -->
+  <circle cx="60" cy="60" r="56" stroke="#815524" stroke-width="2" fill="#faf9f6" />
+  <circle cx="60" cy="60" r="52" stroke="#815524" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.6" />
+
+  <!-- Laurel Wreath Base Framing -->
+  <g stroke="#815524" fill="#815524" opacity="0.85">
+    <!-- Left Wreath Leaves -->
+    <path d="M22 66 C 20 78, 28 92, 44 98 C 41 95, 36 88, 36 82 C 30 84, 25 78, 26 71 Z" />
+    <path d="M26 52 C 23 60, 26 70, 34 74 C 33 68, 31 62, 34 57 C 29 57, 27 54, 26 52 Z" />
+    <path d="M33 39 C 31 46, 36 54, 43 56 C 41 51, 40 45, 43 41 C 38 41, 35 39, 33 39 Z" />
+
+    <!-- Right Wreath Leaves -->
+    <path d="M98 66 C 100 78, 92 92, 76 98 C 79 95, 84 88, 84 82 C 90 84, 95 78, 94 71 Z" />
+    <path d="M94 52 C 97 60, 94 70, 86 74 C 87 68, 89 62, 86 57 C 91 57, 93 54, 94 52 Z" />
+    <path d="M87 39 C 89 46, 84 54, 77 56 C 79 51, 80 45, 77 41 C 82 41, 85 39, 87 39 Z" />
+  </g>
+
+  <!-- Central Judicial Pillar / Sword & Pedestal Base -->
+  <!-- Base Pedestal -->
+  <rect x="44" y="93" width="32" height="3.5" rx="1" fill="#01120f" />
+  <rect x="48" y="89.5" width="24" height="3.5" rx="0.5" fill="#815524" />
+  <rect x="52" y="86" width="16" height="3.5" rx="0.5" fill="#01120f" />
+
+  <!-- Upright Column -->
+  <rect x="58.5" y="27" width="3" height="59" fill="#01120f" />
+  <circle cx="60" cy="56" r="3" fill="#815524" />
+
+  <!-- Pillar Top Finial -->
+  <path d="M60 16 L 63.5 24 L 56.5 24 Z" fill="#815524" />
+  <circle cx="60" cy="26" r="4.5" fill="#01120f" />
+  <circle cx="60" cy="26" r="2.5" fill="#815524" />
+
+  <!-- Balance Beam -->
+  <path d="M26 33.5 Q 60 30.5 94 33.5" stroke="#01120f" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <circle cx="60" cy="32" r="3" fill="#815524" />
+
+  <!-- Left Scale Pivot & Chains -->
+  <circle cx="26" cy="33.5" r="2.5" fill="#815524" />
+  <line x1="26" y1="34" x2="16" y2="56" stroke="#815524" stroke-width="1.2" stroke-linecap="round" />
+  <line x1="26" y1="34" x2="36" y2="56" stroke="#815524" stroke-width="1.2" stroke-linecap="round" />
+  <!-- Left Pan (Saucer) -->
+  <path d="M14 56 Q 26 64 38 56 Z" fill="#01120f" stroke="#815524" stroke-width="1" />
+  <line x1="13" y1="56" x2="39" y2="56" stroke="#815524" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Right Scale Pivot & Chains -->
+  <circle cx="94" cy="33.5" r="2.5" fill="#815524" />
+  <line x1="94" y1="34" x2="84" y2="56" stroke="#815524" stroke-width="1.2" stroke-linecap="round" />
+  <line x1="94" y1="34" x2="104" y2="56" stroke="#815524" stroke-width="1.2" stroke-linecap="round" />
+  <!-- Right Pan (Saucer) -->
+  <path d="M82 56 Q 94 64 106 56 Z" fill="#01120f" stroke="#815524" stroke-width="1" />
+  <line x1="81" y1="56" x2="107" y2="56" stroke="#815524" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Center Seal Accent Star -->
+  <polygon points="60,76 61.2,79.5 65,79.5 62,81.5 63.2,85 60,83 56.8,85 58,81.5 55,79.5 58.8,79.5" fill="#815524" />
+</svg>
