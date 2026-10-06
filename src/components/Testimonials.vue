@@ -171,11 +171,12 @@ const clientVoices = [
   &__stars {
     display: flex;
     color: var(--color-secondary);
-    gap: 2px;
+    gap: 3px;
   }
 
   &__star {
-    font-size: 18px;
+    font-size: 19px;
+    font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
   }
 
   &__quote {
