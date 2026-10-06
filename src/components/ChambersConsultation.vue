@@ -21,6 +21,7 @@ const isSubmitting = ref(false);
 const formValues = ref({
   full_name: '',
   phone: '',
+  email: '',
   category: 'Land & Revenue Dispute',
   message: ''
 });
@@ -29,6 +30,7 @@ const formValues = ref({
 const dirty = ref({
   full_name: false,
   phone: false,
+  email: false,
   category: false,
   message: false
 });
@@ -37,6 +39,7 @@ const dirty = ref({
 const errors = ref({
   full_name: '',
   phone: '',
+  email: '',
   category: '',
   message: ''
 });
@@ -50,6 +53,11 @@ const getValidationError = (field: keyof typeof formValues.value): string => {
   if (field === 'phone') {
     if (!value) return 'Phone number is required';
     return /^(?:\+\d{1,3}[-\s]?)?\d{10}$/.test(value) ? '' : 'Must be 10 digits, with optional + country code';
+  }
+
+  if (field === 'email') {
+    if (!value) return ''; // Optional
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Please enter a valid email address';
   }
 
   if (field === 'category') return value ? '' : 'Please select a matter category';
@@ -121,18 +129,21 @@ async function handleSubmit(event: Event) {
       formValues.value = {
         full_name: '',
         phone: '',
+        email: '',
         category: 'Land & Revenue Dispute',
         message: ''
       };
       dirty.value = {
         full_name: false,
         phone: false,
+        email: false,
         category: false,
         message: false
       };
       errors.value = {
         full_name: '',
         phone: '',
+        email: '',
         category: '',
         message: ''
       };
@@ -288,23 +299,43 @@ async function handleSubmit(event: Event) {
               </span>
             </div>
 
-            <!-- Phone Number -->
-            <div class="consultation__field">
-              <label class="consultation__label" for="clientPhone">Direct Contact Number</label>
-              <input 
-                id="clientPhone"
-                name="phone"
-                v-model="formValues.phone"
-                class="consultation__input" 
-                :class="{ 'consultation__input--error': errors.phone }"
-                placeholder="+91 98765 43210" 
-                type="tel"
-                @input="handleInput('phone')"
-                @blur="handleBlur('phone')"
-              />
-              <span v-if="errors.phone" class="consultation__error-text">
-                {{ errors.phone }}
-              </span>
+            <!-- Contact Row: Phone & Optional Email -->
+            <div class="consultation__row">
+              <div class="consultation__field">
+                <label class="consultation__label" for="clientPhone">Direct Contact Number *</label>
+                <input 
+                  id="clientPhone"
+                  name="phone"
+                  v-model="formValues.phone"
+                  class="consultation__input" 
+                  :class="{ 'consultation__input--error': errors.phone }"
+                  placeholder="+91 98765 43210" 
+                  type="tel"
+                  @input="handleInput('phone')"
+                  @blur="handleBlur('phone')"
+                />
+                <span v-if="errors.phone" class="consultation__error-text">
+                  {{ errors.phone }}
+                </span>
+              </div>
+
+              <div class="consultation__field">
+                <label class="consultation__label" for="clientEmail">Email Address (Optional)</label>
+                <input 
+                  id="clientEmail"
+                  name="email"
+                  v-model="formValues.email"
+                  class="consultation__input" 
+                  :class="{ 'consultation__input--error': errors.email }"
+                  placeholder="litigant@example.com" 
+                  type="email"
+                  @input="handleInput('email')"
+                  @blur="handleBlur('email')"
+                />
+                <span v-if="errors.email" class="consultation__error-text">
+                  {{ errors.email }}
+                </span>
+              </div>
             </div>
 
             <!-- Matter Category -->
@@ -774,6 +805,16 @@ async function handleSubmit(event: Event) {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__field {
