@@ -122,7 +122,7 @@ async function handleSubmit(event: Event) {
     if (data.success) {
       toastType.value = 'success';
       toastTitle.value = 'Consultation Logged';
-      toastDescription.value = 'Case details logged successfully. Registry desk will contact you within 2 legal hours.';
+      toastDescription.value = 'Case details logged successfully. Registry desk will contact you shortly.';
       isToastOpen.value = true;
 
       // Reset form state on success
