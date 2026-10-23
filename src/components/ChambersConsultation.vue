@@ -172,11 +172,11 @@ async function handleSubmit(event: Event) {
       <!-- Split Heading -->
       <div class="consultation__header">
         <div>
-          <span class="consultation__kicker">Direct Engagement</span>
-          <h2 class="consultation__heading">Chambers &amp; Consultation Suite</h2>
+          <span class="consultation__kicker">Direct Legal Engagement · Chambers in Lucknow</span>
+          <h2 class="consultation__heading">Chambers &amp; Consultation Suite in Lucknow</h2>
         </div>
         <p class="consultation__desc">
-          Dual physical offices situated at the High Court judicial block and Jankipuram for accessible morning and evening counsel.
+          Dual physical law offices situated at the Lucknow High Court judicial block (Vibhuti Khand, Gomti Nagar) and Jankipuram for accessible morning and evening counsel across Lucknow and Uttar Pradesh.
         </p>
       </div>
 

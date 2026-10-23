@@ -3,38 +3,38 @@ const disciplines = [
   {
     num: '01',
     icon: 'terrain',
-    title: 'Land & Revenue Jurisprudence',
-    description: 'Ancestral property partition suits, registry deed fraud rectification, revenue record mutation (Khasra & Khatauni reconciliations), and statutory appeals before SDM, Commissioner, and Board of Revenue.'
+    title: 'Land & Revenue Disputes in Lucknow',
+    description: 'Ancestral property partition suits, registry deed fraud rectification, revenue record mutation (Khasra & Khatauni reconciliations), and statutory appeals before SDM, Tehsildar, District Magistrate, and the Board of Revenue in Lucknow.'
   },
   {
     num: '02',
     icon: 'verified_user',
-    title: 'Criminal Defense & Bail Practice',
-    description: 'Urgent anticipatory bail applications before Sessions & High Court, regular bail defense under Bharatiya Nagarik Suraksha Sanhita / CrPC, and Section 482 quashing petitions against malicious FIRs.'
+    title: 'Criminal Defense & Bail in Lucknow High Court',
+    description: 'Urgent anticipatory bail applications before Lucknow Sessions & High Court, regular bail defense under Bharatiya Nagarik Suraksha Sanhita (BNSS) / CrPC, and Section 482 quashing petitions against malicious FIRs.'
   },
   {
     num: '03',
     icon: 'shield',
-    title: 'Civil Litigation & Injunctions',
-    description: 'Immediate restraining orders (temporary injunctions) against unauthorized possession, suits for specific performance of property agreements, title declaration, and high-value breach of contract actions.'
+    title: 'Civil Litigation & Property Suits in Lucknow',
+    description: 'Immediate restraining orders (temporary injunctions) against unauthorized land possession, suits for specific performance of property agreements, title declarations, and commercial contract litigation in Lucknow civil courts.'
   },
   {
     num: '04',
     icon: 'diversity_3',
-    title: 'Matrimonial & Family Law',
-    description: 'Compassionate yet firm legal intervention: mutual and contested divorce proceedings, defense in Section 125 CrPC maintenance applications, child custody determinations, and domestic dispute settlements.'
+    title: 'Matrimonial & Family Law in Lucknow',
+    description: 'Compassionate yet formidable legal representation: mutual consent and contested divorce proceedings, defense in Section 125 CrPC maintenance applications, child custody, and domestic dispute settlements before Lucknow Family Courts.'
   },
   {
     num: '05',
     icon: 'account_balance_wallet',
-    title: 'High Court Writ Petitions',
-    description: 'Constitutional challenges under Article 226 of the Constitution of India against arbitrary state or municipal directives. Writ of Mandamus, Certiorari, and Quo Warranto before the Lucknow High Court.'
+    title: 'High Court Writ Petitions (Lucknow Bench)',
+    description: 'Constitutional remedies under Article 226 of the Constitution of India against arbitrary state or municipal actions. Writ of Mandamus, Certiorari, Habeas Corpus, and Quo Warranto before the Lucknow High Court.'
   },
   {
     num: '06',
     icon: 'domain_add',
-    title: 'Consumer Forum & RERA Disputes',
-    description: 'Enforcing real estate delivery contracts, securing refund orders with statutory interest against delinquent developers before UP RERA, and litigating deficient service claims before State Commissions.'
+    title: 'UP RERA & Consumer Protection in Lucknow',
+    description: 'Enforcing real estate delivery contracts, securing refund orders with statutory interest against delinquent developers before UP RERA (Gomti Nagar), and litigating deficient service claims before State & District Consumer Commissions.'
   }
 ];
 </script>
@@ -45,11 +45,11 @@ const disciplines = [
       <!-- Section Header -->
       <div class="practice__header">
         <div class="practice__header-title-wrap">
-          <span class="practice__kicker">Disciplined Specializations</span>
-          <h2 class="practice__heading">Practice Spectrum</h2>
+          <span class="practice__kicker">Legal Services in Lucknow · Practice Disciplines</span>
+          <h2 class="practice__heading">Practice Spectrum &amp; Legal Services in Lucknow</h2>
         </div>
         <p class="practice__description">
-          Meticulously structured legal chambers handling civil, criminal, constitutional, and regulatory litigation across original and appellate benches.
+          Recognized among the most trusted lawyers in Lucknow, Advocate Saubhagya Mishra &amp; Associates handles complex civil, criminal, constitutional, and revenue litigation across original and appellate benches.
         </p>
       </div>
 

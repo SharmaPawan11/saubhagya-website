@@ -6,6 +6,7 @@ import Manifesto from '@/components/Manifesto.vue';
 import PracticeSpectrum from '@/components/PracticeSpectrum.vue';
 import Testimonials from '@/components/Testimonials.vue';
 import CitizenRights from '@/components/CitizenRights.vue';
+import FaqSection from '@/components/FaqSection.vue';
 import ChambersConsultation from '@/components/ChambersConsultation.vue';
 import Footer from '@/components/Footer.vue';
 </script>
@@ -20,6 +21,7 @@ import Footer from '@/components/Footer.vue';
       <PracticeSpectrum />
       <Testimonials />
       <CitizenRights />
+      <FaqSection />
       <ChambersConsultation />
     </main>
     <Footer />

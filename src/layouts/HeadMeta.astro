@@ -11,21 +11,54 @@ const structuredData = {
       "inLanguage": "en-IN"
     },
     {
+      "@type": "BreadcrumbList",
+      "@id": "https://saubhagyamishra.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://saubhagyamishra.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Lawyers in Lucknow",
+          "item": "https://saubhagyamishra.com/#practice-spectrum"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chambers in Lucknow",
+          "item": "https://saubhagyamishra.com/#consultation"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Legal FAQ",
+          "item": "https://saubhagyamishra.com/#faq"
+        }
+      ]
+    },
+    {
       "@type": ["LegalService", "Attorney", "ProfessionalService"],
       "@id": "https://saubhagyamishra.com/#organization",
       "name": "Saubhagya Mishra & Associates | Lawyers in Lucknow",
       "alternateName": [
         "Lawyers in Lucknow",
         "Best Advocates in Lucknow",
+        "Top Lawyers in Lucknow",
         "Advocate Saubhagya Mishra",
         "Adv. Saubhagya Mishra & Associates",
         "Chambers of Advocate Saubhagya Mishra",
-        "Lucknow High Court Advocate"
+        "Lucknow High Court Advocate",
+        "Criminal Lawyer in Lucknow",
+        "Property Lawyer in Lucknow"
       ],
       "url": "https://saubhagyamishra.com/",
       "logo": "https://saubhagyamishra.com/images/legal-logo.svg",
       "image": "https://saubhagyamishra.com/images/hero_webp.webp",
-      "description": "Top lawyers in Lucknow providing expert legal defense, anticipatory bail, land and revenue dispute resolution, and constitutional writ remedies before the Lucknow High Court and District Courts.",
+      "description": "Top lawyers in Lucknow providing expert legal defense, anticipatory bail, land and revenue dispute resolution, civil litigation, and constitutional writ remedies before the Lucknow High Court and District Courts.",
       "telephone": ["+91-94526-16163", "+91-89585-45352"],
       "email": "help@saubhagyamishra.com",
       "priceRange": "$$$",
@@ -33,14 +66,18 @@ const structuredData = {
       "paymentAccepted": "Cash, UPI, Bank Transfer",
       "openingHours": "Mo,Tu,We,Th,Fr,Sa 10:00-20:00",
       "areaServed": [
-        {
-          "@type": "City",
-          "name": "Lucknow"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Uttar Pradesh"
-        }
+        { "@type": "City", "name": "Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Gomti Nagar, Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Jankipuram, Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Hazratganj, Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Aliganj, Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Indira Nagar, Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Mahanagar, Lucknow" },
+        { "@type": "AdministrativeArea", "name": "Barabanki" },
+        { "@type": "AdministrativeArea", "name": "Ayodhya" },
+        { "@type": "AdministrativeArea", "name": "Sitapur" },
+        { "@type": "AdministrativeArea", "name": "Unnao" },
+        { "@type": "AdministrativeArea", "name": "Uttar Pradesh" }
       ],
       "geo": {
         "@type": "GeoCoordinates",
@@ -73,8 +110,8 @@ const structuredData = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Criminal Defense & Anticipatory Bail in Lucknow",
-              "description": "Urgent regular bail, anticipatory bail, and FIR quashing petitions under BNS/CrPC before Lucknow High Court and Sessions Courts."
+              "name": "Criminal Defense & Anticipatory Bail in Lucknow High Court",
+              "description": "Urgent regular bail, anticipatory bail, and FIR quashing petitions under BNSS/CrPC before Lucknow High Court and Sessions Courts."
             }
           },
           {
@@ -82,7 +119,7 @@ const structuredData = {
             "itemOffered": {
               "@type": "Service",
               "name": "Lucknow High Court Writ Petitions",
-              "description": "Article 226 Constitutional writ remedies, Mandamus, Certiorari, and Public Law challenges before the Lucknow High Court."
+              "description": "Article 226 Constitutional writ remedies, Mandamus, Certiorari, Habeas Corpus, and Public Law challenges before the Lucknow High Court."
             }
           },
           {
@@ -90,7 +127,7 @@ const structuredData = {
             "itemOffered": {
               "@type": "Service",
               "name": "Land, Property & Revenue Dispute Law in Lucknow",
-              "description": "Ancestral land partition, revenue record mutation, title declaration, and property injunction suits across Lucknow."
+              "description": "Ancestral land partition, revenue record mutation, title declaration, and property injunction suits across Lucknow and UP Board of Revenue."
             }
           },
           {
@@ -98,7 +135,15 @@ const structuredData = {
             "itemOffered": {
               "@type": "Service",
               "name": "Matrimonial & Family Dispute Law in Lucknow",
-              "description": "Mutual consent and contested divorce, Section 125 maintenance, child custody, and domestic disputes in Lucknow family courts."
+              "description": "Mutual consent and contested divorce, Section 125 maintenance, child custody, and domestic disputes in Lucknow Family Courts."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Civil Litigation & Injunctions in Lucknow",
+              "description": "Restraining orders, property title injunctions, specific performance of contracts, and commercial litigation in Lucknow District Courts."
             }
           },
           {
@@ -106,16 +151,17 @@ const structuredData = {
             "itemOffered": {
               "@type": "Service",
               "name": "UP RERA & Consumer Protection Litigation in Lucknow",
-              "description": "Execution of builder-buyer delivery agreements, refund recovery with interest before UP RERA authority in Lucknow."
+              "description": "Execution of builder-buyer delivery agreements, refund recovery with interest before UP RERA authority in Gomti Nagar, Lucknow."
             }
           }
         ]
       },
       "knowsAbout": [
         "Lawyers in Lucknow",
+        "Best Advocates in Lucknow",
         "Lucknow High Court Litigation",
         "Constitutional Law & Article 226 Writ Petitions",
-        "Criminal Defense & Anticipatory Bail (BNS / CrPC)",
+        "Criminal Defense & Anticipatory Bail (BNSS / CrPC)",
         "Section 482 Quashing Petitions",
         "Land & Revenue Jurisprudence (Mutation & Partition Suits)",
         "Civil Litigation & Emergency Stay Orders",
@@ -151,31 +197,55 @@ const structuredData = {
           "name": "Who are the top lawyers in Lucknow for High Court cases?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Advocate Saubhagya Mishra & Associates is among the most trusted law chambers in Lucknow, providing formidable representation before the Lucknow High Court in Constitutional writs, criminal appeals, civil disputes, and urgent stay matters."
+            "text": "Advocate Saubhagya Mishra & Associates is among the most trusted law chambers in Lucknow, providing formidable representation before the Lucknow High Court in Constitutional writs (Article 226), criminal appeals, civil property disputes, anticipatory bail, and emergency stay orders. The chamber brings years of courtroom tenacity, direct litigator access, and transparent legal viability analysis."
           }
         },
         {
           "@type": "Question",
-          "name": "How can I apply for urgent anticipatory bail in Lucknow?",
+          "name": "How quickly can an advocate in Lucknow file for anticipatory bail or urgent stay relief?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can seek urgent anticipatory bail before the District Sessions Court or the Lucknow High Court under the provisions of Bharatiya Nagarik Suraksha Sanhita (BNSS) / CrPC through Advocate Saubhagya Mishra & Associates. Immediate listing protocols are available for emergency relief."
+            "text": "For emergency criminal protection or stay matters, our chambers deploy an immediate listing protocol. Under the Bharatiya Nagarik Suraksha Sanhita (BNSS) and CrPC, urgent anticipatory bail or interim stay petitions can be drafted, vetted, and moved before the District Sessions Court or the Lucknow High Court within 24 to 48 hours."
           }
         },
         {
           "@type": "Question",
-          "name": "Where are the chambers of Saubhagya Mishra & Associates located in Lucknow?",
+          "name": "Which courts and judicial tribunals in Lucknow does the firm practice before?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The firm operates dual offices in Lucknow: Chamber No. 114 / A 309, Advocates Chamber Block, Lucknow High Court Campus, Vibhuti Khand, Gomti Nagar (10:00 AM – 4:30 PM), and 1/598, Sector H, Jankipuram, Lucknow (5:00 PM – 8:00 PM)."
+            "text": "Our counsel actively represent litigants across all premier judicial forums in Lucknow, including the Allahabad High Court (Lucknow Bench), District & Sessions Court (Kaiserbagh Kutchery), Board of Revenue (UP), UP Real Estate Regulatory Authority (UP RERA, Gomti Nagar), Lucknow Family Court, and the State Consumer Disputes Redressal Commission."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I schedule a legal consultation with Advocate Saubhagya Mishra?",
+          "name": "What documents should I prepare for a property or land dispute consultation in Lucknow?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can call the direct counsel lines at +91 94526 16163 or +91 89585 45352, email help@saubhagyamishra.com, or submit a confidential case review form on our official website."
+            "text": "For land and revenue matters, we recommend bringing registered sale deeds, certified Khasra/Khatauni extracts, municipal mutation receipts, any ongoing court order sheets or notices from the SDM/Tehsildar, and a chronological timeline of ownership disputes to enable a prompt forensic evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are your legal chambers located in Lucknow, and what are the office timings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We operate dual physical chambers in Lucknow: (1) High Court Chamber: Chamber No. 114 / A 309, Advocates Chamber Block, Lucknow High Court Campus, Vibhuti Khand, Gomti Nagar (10:00 AM – 4:30 PM); and (2) Jankipuram Chamber: 1/598, Sector H, near Engineering College Chauraha, Jankipuram, Lucknow (5:00 PM – 8:00 PM)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I schedule a confidential consultation with Advocate Saubhagya Mishra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Litigants can book a confidential review by calling our direct counsel lines at +91 94526 16163 or +91 89585 45352, sending an email to help@saubhagyamishra.com, or submitting the confidential case inquiry form directly on this website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can clients outside Lucknow or Uttar Pradesh file writ petitions in the Lucknow High Court?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We frequently represent clients from across Uttar Pradesh (including Barabanki, Ayodhya, Sitapur, Raebareli, Unnao, Hardoi, Lakhimpur Kheri) and across India whose legal matters, public law challenges, or government administrative directives fall within the territorial jurisdiction of the Lucknow High Court."
           }
         }
       ]
@@ -184,8 +254,8 @@ const structuredData = {
 };
 
 const {
-  title = "Lawyers in Lucknow | Advocate Saubhagya Mishra & Associates | Lucknow High Court",
-  description = "Top lawyers in Lucknow offering expert legal counsel at Lucknow High Court & District Courts. Specializing in Criminal Defense, Anticipatory Bail, Land & Property Disputes, Writ Petitions & Matrimonial Law. Call +91 94526 16163."
+  title = "Lawyers in Lucknow | Advocate Saubhagya Mishra & Associates",
+  description = "Top lawyers in Lucknow providing expert legal counsel at Lucknow High Court & District Courts in Criminal Defense, Bail, Property Disputes & Writs. Call now."
 } = Astro.props;
 ---
 
@@ -200,7 +270,7 @@ const {
   <meta name="description" content={description} />
   <meta name="author" content="Saubhagya Mishra & Associates" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="keywords" content="Lawyers in Lucknow, Best Advocates in Lucknow, Top Lawyers in Lucknow, Lucknow High Court Advocate, Criminal Lawyer in Lucknow, Bail Lawyer Lucknow, Property Lawyer Lucknow, Revenue Dispute Lawyer Lucknow, High Court Writ Petition Lucknow, Matrimonial Lawyer Lucknow, Divorce Advocate Lucknow, Legal Services Lucknow, Advocate Saubhagya Mishra & Associates, Oudh Bar Association Lucknow, Gomti Nagar Lawyers, Jankipuram Advocates, Lawyers in Lucknow High Court" />
+  <meta name="keywords" content="Lawyers in Lucknow, Best Lawyers in Lucknow, Top Advocates in Lucknow, Lucknow High Court Advocate, Criminal Lawyer in Lucknow, Bail Lawyer Lucknow, Property Lawyer Lucknow, Revenue Dispute Lawyer Lucknow, High Court Writ Petition Lucknow, Matrimonial Lawyer Lucknow, Divorce Advocate Lucknow, Legal Services Lucknow, Advocate Saubhagya Mishra & Associates, Oudh Bar Association Lucknow, Gomti Nagar Lawyers, Jankipuram Advocates, Lawyers in Lucknow High Court, Advocates in Kaiserbagh Kutchery Lucknow" />
   <meta name="theme-color" content="#01120f" />
   <link rel="canonical" href="https://saubhagyamishra.com/" />
 
@@ -219,18 +289,18 @@ const {
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_IN" />
-  <meta property="og:site_name" content="Saubhagya Mishra & Associates" />
+  <meta property="og:site_name" content="Saubhagya Mishra & Associates | Lawyers in Lucknow" />
   <meta property="og:url" content="https://saubhagyamishra.com/" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="/images/hero_webp.webp" />
+  <meta property="og:image" content="https://saubhagyamishra.com/images/hero_webp.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://saubhagyamishra.com/" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="/images/hero_webp.webp" />
+  <meta name="twitter:image" content="https://saubhagyamishra.com/images/hero_webp.webp" />
 
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

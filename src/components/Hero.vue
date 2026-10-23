@@ -4,6 +4,14 @@ const metrics = [
   { value: '6+', label: 'Years Courtroom Tenacity', highlight: false },
   { value: 'Dual', label: 'High Court & Sessions Roster', highlight: true }
 ];
+
+const courtBenches = [
+  'Allahabad High Court (Lucknow Bench)',
+  'District & Sessions Court (Kaiserbagh Kutchery)',
+  'Board of Revenue UP',
+  'UP RERA (Gomti Nagar)',
+  'Lucknow Family Court'
+];
 </script>
 
 <template>
@@ -18,17 +26,17 @@ const metrics = [
         <div class="hero__content">
           <div class="hero__badge">
             <span class="hero__badge-dot"></span>
-            <span class="hero__badge-text">Lucknow High Court &amp; District Sessions · Lawyers in Lucknow</span>
+            <span class="hero__badge-text">Lucknow High Court &amp; District Sessions · Advocates in Lucknow</span>
           </div>
 
           <h1 class="hero__heading">
-            Principled Counsel.<br />
+            Lawyers in Lucknow.<br />
             <span class="hero__heading-italic">Strategic Trial &amp;</span><br />
-            Appellate Advocacy.
+            High Court Counsel.
           </h1>
 
           <p class="hero__description">
-            Advocate Saubhagya Mishra &amp; Associates delivers formidable courtroom defense, property dispute clarity, and high-stakes constitutional writ remedies across the Lucknow High Court and District Sessions. Recognized among the leading lawyers in Lucknow for uncompromising evidentiary precision and decisive judicial relief.
+            Advocate Saubhagya Mishra &amp; Associates delivers formidable courtroom defense, land &amp; revenue dispute resolution, and high-stakes constitutional writ remedies across the Lucknow High Court and District Courts. Recognized among the leading lawyers in Lucknow for uncompromising evidentiary precision and decisive judicial relief.
           </p>
 
           <!-- Dual CTAs -->
@@ -84,6 +92,18 @@ const metrics = [
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Judicial Forums & Practice Benches in Lucknow Strip -->
+      <div class="hero__benches">
+        <span class="hero__benches-label">Practice Benches in Lucknow:</span>
+        <div class="hero__benches-list">
+          <span v-for="(bench, idx) in courtBenches" :key="bench" class="hero__benches-item">
+            <span class="material-symbols-outlined hero__benches-icon">balance</span>
+            <span>{{ bench }}</span>
+            <span v-if="idx < courtBenches.length - 1" class="hero__benches-sep">•</span>
+          </span>
         </div>
       </div>
     </div>
@@ -450,6 +470,61 @@ const metrics = [
   &__overlay-icon {
     font-size: 24px;
     color: var(--color-secondary);
+  }
+
+  &__benches {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(227, 226, 224, 0.5);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+  }
+
+  &__benches-label {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-secondary);
+    white-space: nowrap;
+  }
+
+  &__benches-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-sm);
+  }
+
+  &__benches-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    color: var(--color-on-surface-variant);
+  }
+
+  &__benches-icon {
+    font-size: 14px;
+    color: var(--color-secondary);
+  }
+
+  &__benches-sep {
+    color: var(--color-outline);
+    margin-left: var(--space-xs);
   }
 }
 

@@ -1,18 +1,20 @@
 <script setup lang="ts">
 const practiceLinks = [
-  'High Court Writ Petitions',
-  'Criminal Defense & Bail Practice',
-  'Property, Land & Revenue Writs',
-  'Civil Injunctions & Property Title',
-  'Matrimonial & Family Law',
-  'UP RERA & Consumer Disputes'
+  'High Court Writ Petitions (Lucknow Bench)',
+  'Criminal Defense & Anticipatory Bail',
+  'Land, Property & Revenue Writs in Lucknow',
+  'Civil Injunctions & Property Title Suits',
+  'Matrimonial & Family Law in Lucknow',
+  'UP RERA & Consumer Protection Disputes'
 ];
 
 const engageLinks = [
   { name: 'Overview', href: '#' },
-  { name: 'The Chamber', href: '#consultation' },
-  { name: 'Selected Opinions', href: '#high-court-cases' },
-  { name: 'Citizen Gazette', href: '#insights' }
+  { name: 'Legal Services', href: '#practice-spectrum' },
+  { name: 'Chamber Counsel', href: '#high-court-cases' },
+  { name: 'Client Reviews', href: '#testimonials' },
+  { name: 'Citizen Rights Guide', href: '#insights' },
+  { name: 'Lawyers in Lucknow FAQ', href: '#faq' }
 ];
 
 const currentYear = new Date().getFullYear();
